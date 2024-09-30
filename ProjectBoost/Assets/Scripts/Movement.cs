@@ -55,9 +55,15 @@ public class Movement : MonoBehaviour
     //Method responsible for applying the rotation
     void ApplyRotation(float rotateDirection)
     {
+        //Freeze the physics rotation while rotating manually
+        playerRb.freezeRotation = true;
+
         //Rotate object around z-axis
         Vector3 rotateAmount = Vector3.forward * rotateDirection * Time.deltaTime;
         transform.Rotate(rotateAmount);
+
+        //Stop freezing the physics rotation
+        playerRb.freezeRotation = false;
     }
 
     //Method responsible for thrusting the player
