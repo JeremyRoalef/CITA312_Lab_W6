@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -6,6 +8,7 @@ public class CollisionHandler : MonoBehaviour
     {
         switch(other.gameObject.tag) {
             case "Dangerous":
+                ReloadScene();
                 KillPlayer();
                 break;
             case "Fuel":
@@ -36,5 +39,23 @@ public class CollisionHandler : MonoBehaviour
     void LoadNextScene()
     {
         Debug.Log("Collision should load the next scene");
+    }
+    
+    //Method to load the current scene
+    void ReloadScene()
+    {
+        //Start the coroutine to reload the current scene
+        StartCoroutine(WaitToReloadScene());
+    }
+
+    //IEnumerator to wait to reload the current scene
+    IEnumerator WaitToReloadScene()
+    {
+        int intCurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        //Wait to reload current scene
+        yield return new WaitForSeconds(1);
+        //Reload the current scene
+        SceneManager.LoadScene(intCurrentSceneIndex);
     }
 }
