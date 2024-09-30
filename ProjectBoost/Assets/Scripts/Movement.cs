@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
     //Create serialized fields
     [SerializeField] float fltThrustSpeed = 1f;
     [SerializeField] float fltRotateSpeed = 1f;
+    AudioSource thrustSFX;
+
 
     //Create object types
     Rigidbody playerRb;
@@ -23,6 +25,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>(); //Get rb attached to the same object the script is on
+        thrustSFX = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -69,12 +72,36 @@ public class Movement : MonoBehaviour
     //Method responsible for thrusting the player
     void GetThrust()
     {
-        if (Input.GetKey(KeyCode.Space)) //Set KeyCode enumeration type to Space.
+        if (Input.GetKey(KeyCode.Space)) //Set KeyCode enumeration type to Space
         {
             //F = ma, meaning a = F/m. Acceleration of object from force is dependent on amount of force & object's mass
 
             Vector3 forceAmount = Vector3.up * fltThrustSpeed * Time.deltaTime; //Vector3.up is the object's relative up direction
             playerRb.AddRelativeForce(forceAmount); //Add force to rb relative to its own direction (not world space)
+
+            //Play the thrust sfx
+            PlayThrustSound();
         }
+        else
+        {
+            //Stop the thrust sfx
+            StopThrustSound();
+        }
+    }
+
+    //Method responsible for turning the thrust sfx on
+    void PlayThrustSound()
+    {
+        //If the thrust sfx is not playing, play the sfx
+        if (!thrustSFX.isPlaying)
+        {
+            thrustSFX.Play();
+        }
+    }
+    
+    //Method responsible for turning the thrust off
+    void StopThrustSound()
+    {
+        thrustSFX.Stop();
     }
 }
