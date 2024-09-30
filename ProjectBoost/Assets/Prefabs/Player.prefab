@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8442838973993265011}
   - component: {fileID: 2709321617237485111}
   - component: {fileID: 2546956207907646090}
-  - component: {fileID: -6619174327761317908}
   - component: {fileID: 63909858498801800}
   - component: {fileID: 9106776139761516396}
+  - component: {fileID: -6619174327761317908}
+  - component: {fileID: 1777126143569816750}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -108,20 +109,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-6619174327761317908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813958144719580712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e263b409e246858488baab5bfef82a03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fltThrustSpeed: 1000
-  fltRotateSpeed: 100
 --- !u!54 &63909858498801800
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -245,3 +232,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6619174327761317908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813958144719580712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e263b409e246858488baab5bfef82a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fltThrustSpeed: 1000
+  fltRotateSpeed: 100
+--- !u!114 &1777126143569816750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813958144719580712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 078a13cbbbb94a14aaf40e3ad0539fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
