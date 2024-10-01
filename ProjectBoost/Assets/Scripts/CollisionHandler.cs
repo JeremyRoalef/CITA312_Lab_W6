@@ -38,7 +38,8 @@ public class CollisionHandler : MonoBehaviour
     //Method to load the next scene
     void LoadNextScene()
     {
-        Debug.Log("Collision should load the next scene");
+        Debug.Log("Collision should load next scene");
+        StartCoroutine(WaitToLoadNextScene());
     }
     
     //Method to load the current scene
@@ -57,5 +58,28 @@ public class CollisionHandler : MonoBehaviour
         yield return new WaitForSeconds(1);
         //Reload the current scene
         SceneManager.LoadScene(intCurrentSceneIndex);
+    }
+
+    //IEnumerator to wait to load the next scene
+    IEnumerator WaitToLoadNextScene()
+    {
+        int intNextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        //Wait to load next scene
+        yield return new WaitForSeconds(1);
+
+        //Determine if there is a next scene in build
+        bool boolThereIsNextScene = intNextSceneIndex < SceneManager.sceneCountInBuildSettings;
+
+        //If there's a next scene in build, load it
+        if (boolThereIsNextScene)
+        {
+            SceneManager.LoadScene(intNextSceneIndex);
+        }
+        //Otherwise, restart game (scene at index 0)
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
