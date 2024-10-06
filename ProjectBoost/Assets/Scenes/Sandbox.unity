@@ -321,10 +321,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 813958144719580712, guid: 374f92bab61446f47ba3dadaba4079cb, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 4607706957260817640, guid: 374f92bab61446f47ba3dadaba4079cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.75
@@ -363,14 +359,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4607706957260817640, guid: 374f92bab61446f47ba3dadaba4079cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9106776139761516396, guid: 374f92bab61446f47ba3dadaba4079cb, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9106776139761516396, guid: 374f92bab61446f47ba3dadaba4079cb, type: 3}
-      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
