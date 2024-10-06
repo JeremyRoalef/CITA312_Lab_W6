@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] AudioClip crashSFX;
+    [SerializeField] AudioClip winSFX;
+
     void OnCollisionEnter(Collision other)
     {
         switch(other.gameObject.tag) {
@@ -26,6 +29,11 @@ public class CollisionHandler : MonoBehaviour
     //Method to kill player
     void KillPlayer()
     {
+        GetComponent<Movement>().enabled = false;
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.Stop();
+        audioSource.clip = crashSFX;
+        audioSource.Play();
         Debug.Log("Collision should kill player");
     }
 
@@ -38,6 +46,11 @@ public class CollisionHandler : MonoBehaviour
     //Method to load the next scene
     void LoadNextScene()
     {
+        GetComponent<Movement>().enabled = false;
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.Stop();
+        audioSource.clip = winSFX;
+        audioSource.Play();
         Debug.Log("Collision should load next scene");
         StartCoroutine(WaitToLoadNextScene());
     }

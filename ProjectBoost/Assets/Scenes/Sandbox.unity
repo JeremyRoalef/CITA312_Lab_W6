@@ -321,6 +321,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1777126143569816750, guid: 374f92bab61446f47ba3dadaba4079cb, type: 3}
+      propertyPath: winSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
+    - target: {fileID: 1777126143569816750, guid: 374f92bab61446f47ba3dadaba4079cb, type: 3}
+      propertyPath: crashSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: cabfae866cab347928b74b7d0ca6bfa9, type: 3}
     - target: {fileID: 4607706957260817640, guid: 374f92bab61446f47ba3dadaba4079cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.75
