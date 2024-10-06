@@ -7,6 +7,9 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] AudioClip crashSFX;
     [SerializeField] AudioClip winSFX;
 
+    
+
+
     void OnCollisionEnter(Collision other)
     {
         switch(other.gameObject.tag) {
@@ -32,6 +35,7 @@ public class CollisionHandler : MonoBehaviour
         GetComponent<Movement>().enabled = false;
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.Stop();
+        audioSource.loop = false;
         audioSource.clip = crashSFX;
         audioSource.Play();
         Debug.Log("Collision should kill player");
@@ -49,6 +53,7 @@ public class CollisionHandler : MonoBehaviour
         GetComponent<Movement>().enabled = false;
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.Stop();
+        audioSource.loop = false;
         audioSource.clip = winSFX;
         audioSource.Play();
         Debug.Log("Collision should load next scene");
@@ -67,6 +72,11 @@ public class CollisionHandler : MonoBehaviour
     {
         int intCurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
+        //Wait to start transition
+        yield return new WaitForSeconds(1);
+        GameObject sceneCanvas = GameObject.FindGameObjectWithTag("TransitionCanvas");
+        sceneCanvas.GetComponent<SceneTransition>().StartTransitionToNextScene();
+
         //Wait to reload current scene
         yield return new WaitForSeconds(1);
         //Reload the current scene
@@ -77,6 +87,11 @@ public class CollisionHandler : MonoBehaviour
     IEnumerator WaitToLoadNextScene()
     {
         int intNextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        //Wait to start transition
+        yield return new WaitForSeconds(1);
+        GameObject sceneCanvas = GameObject.FindGameObjectWithTag("TransitionCanvas");
+        sceneCanvas.GetComponent<SceneTransition>().StartTransitionToNextScene();
 
         //Wait to load next scene
         yield return new WaitForSeconds(1);

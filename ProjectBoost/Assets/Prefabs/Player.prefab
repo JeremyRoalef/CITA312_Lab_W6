@@ -258,3 +258,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078a13cbbbb94a14aaf40e3ad0539fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crashSFX: {fileID: 8300000, guid: cabfae866cab347928b74b7d0ca6bfa9, type: 3}
+  winSFX: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
